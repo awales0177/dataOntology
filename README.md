@@ -181,7 +181,7 @@ Task "1" --> "1..*" DataTransformation : performs
 Job "1" --> "0..*" Run : hasRun
 Run "1" --> "1..*" Task : executes
 
-Run "0..*" --> "0..*" Dataset : consumes
+DataPipeline "0..*" --> "0..*" Dataset : consumes
 Run "1..*" --> "0..*" DataProduct : produces
 
 DataProduct "1" --> "1..*" Table : hasSchema
