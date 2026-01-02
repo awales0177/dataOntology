@@ -114,11 +114,6 @@ class Task {
   +name: string
 }
 
-class DataTransformation {
-  +name: string
-  +type: string
-  +logicRef: string
-}
 
 class Run {
   +runId: string
@@ -162,8 +157,6 @@ DataContract "1" --> "1" DataPlatform : targetPlatform
 DataPipeline "0..*" --> "1" DataPlatform : runsOn
 DataPipeline "1" --> "1..*" Job : hasJob
 
-Task "1" --> "1..*" DataTransformation : performs
-
 Job "1" --> "0..*" Run : hasRun
 Run "1" --> "1..*" Task : executes
 
@@ -176,7 +169,6 @@ DataProduct "1" --> "0..*" DataValidation : defines
 Run "0..*" --> "0..*" DataValidation : evaluates
 
 Dataset "0..*" --> "0..*" DataLineage : upstream
-DataTransformation "1" --> "0..*" DataLineage : creates
 Table "1" --> "0..*" DataLineage : downstream
 DataProduct "1" --> "0..*" DataLineage : materializedFrom
 Run "0..*" --> "0..*" DataLineage : emmits
