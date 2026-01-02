@@ -145,7 +145,6 @@ class DataProduct {
   +releaseTag: string
 }
 
-
 class Table {
   +name: string
   +storageRef: string
@@ -159,6 +158,11 @@ class DataValidation {
   +status: string
   +checkedAt: datetime
   +details: string
+}
+
+class DataLineage {
+  +sourceRef: string
+  +targetRef: string
 }
 
 DatasetPriorityQueue "1" --> "0..*" Dataset : orders
@@ -188,3 +192,10 @@ DataProduct "1" --> "1..*" Table : hasSchema
 
 DataProduct "1" --> "0..*" DataValidation : defines
 Run "0..*" --> "0..*" DataValidation : evaluates
+
+Dataset "0..*" --> "0..*" DataLineage : upstream
+DataTransformation "1" --> "0..*" DataLineage : creates
+Table "1" --> "0..*" DataLineage : downstream
+DataProduct "1" --> "0..*" DataLineage : materializedFrom
+Run "0..*" --> "0..*" DataLineage : emmits
+
