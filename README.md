@@ -161,7 +161,6 @@ DataContract "1" --> "1" DataDomain : appliesToDomain
 DataContract "1" --> "1" DataPlatform : targetPlatform
 DataPipeline "0..*" --> "1" DataPlatform : runsOn
 DataPipeline "1" --> "1..*" Job : hasJob
-Job "1" --> "1..*" Task : hasTask
 
 Task "1" --> "1..*" DataTransformation : performs
 
