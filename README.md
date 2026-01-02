@@ -145,11 +145,6 @@ class DataProduct {
   +releaseTag: string
 }
 
-class Schema {
-  +name: string
-  +version: string
-  +format: string
-}
 
 class Table {
   +name: string
@@ -189,8 +184,7 @@ Run "1" --> "1..*" Task : executes
 Run "0..*" --> "0..*" Dataset : consumes
 Run "1..*" --> "0..*" DataProduct : produces
 
-DataProduct "1" --> "1..*" Schema : hasSchema
-Schema "1" --> "1..*" Table : hasTable
+DataProduct "1" --> "1..*" Table : hasSchema
 
 DataProduct "1" --> "0..*" DataValidation : defines
 Run "0..*" --> "0..*" DataValidation : evaluates
