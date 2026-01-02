@@ -68,33 +68,25 @@ direction LR
 
 class DatasetPriorityQueue {
   +name: string
-  +policy: string
 }
 
 class Dataset {
   +name: string
-  +source: string
-  +owner: string
-  +priority: int
+  +ID: string
   +queueStatus: string
 }
 
 class DataProfile {
   +profiledAt: datetime
-  +rowCount: int
-  +nullRate: decimal
-  +freshnessSeconds: int
 }
 
 class DataAnalytics {
   +analysisType: string
   +metrics: list
-  +insights: string
 }
 
 class DataDomain {
   +name: string
-  +steward: string
 }
 
 class DataContract {
@@ -105,14 +97,12 @@ class DataContract {
 
 class DataPlatform {
   +name: string
-  +type: string
   +environment: string
 }
 
 class DataPipeline {
   +name: string
   +version: string
-  +owner: string
 }
 
 class Job {
@@ -122,9 +112,6 @@ class Job {
 
 class Task {
   +name: string
-  +type: string
-  +order: int
-  +logicRef: string
 }
 
 class DataTransformation {
@@ -142,21 +129,17 @@ class Run {
 
 class DataProduct {
   +productType: string
-  +releaseTag: string
 }
 
 class Table {
   +name: string
-  +storageRef: string
 }
 
 class DataValidation {
   +name: string
-  +scope: string
   +severity: string
   +logic: string
   +status: string
-  +checkedAt: datetime
   +details: string
 }
 
